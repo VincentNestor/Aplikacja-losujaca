@@ -1,0 +1,460 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 40px !important;
+    font-family: 'Cinzel', serif;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+
+}
+
+.transparentResult {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 1s;
+    letter-spacing: 2px;
+    color: snow;
+
+}
+
+.transparentResult.active {
+    z-index: 300;
+    opacity: 1;
+
+}
+
+.glowing {
+    min-height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.glowing span {
+    border: 3px solid;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.glowing span:hover {
+    cursor: pointer;
+}
+
+.Purple {
+    color: purple;
+    box-shadow: 0 0 20px purple, inset 0 0 20px purple;
+    text-shadow: 0 0 10px purple;
+
+}
+
+.Blue {
+    color: #16FDE8;
+    box-shadow: 0 0 20px #16FDE8, inset 0 0 20px #16FDE8;
+    text-shadow: 0 0 10px #16FDE8;
+
+}
+
+aside {
+    position: absolute;
+    z-index: 50;
+    left: 0;
+    min-width: 30%;
+    background-color: rgba(5, 5, 5, 0.411);
+    /* min-height: 70%; */
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Advent Pro', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 200;
+    color: whitesmoke;
+    border-radius: 5px;
+
+
+}
+
+aside p {
+    margin: 2px;
+
+}
+
+aside h4,
+aside h5,
+aside h6 {
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+
+
+#bid {
+    bottom: 0;
+    border: none;
+    background: transparent;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    /* border-bottom: 1px solid snow; */
+    color: whitesmoke;
+    font-size: 17px;
+}
+
+::placeholder {
+    color: snow;
+    font-size: 17px;
+}
+
+.bidBox {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .5);
+    min-height: 60px;
+    min-width: 140px;
+
+}
+
+main.loading {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(asia.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+div.result {
+    width: 100px;
+    height: 50px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    color: black;
+    transform: translateX(-50%);
+}
+
+.carrot {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.fas.fa-long-arrow-alt-left {
+    position: absolute;
+    font-size: 120px;
+    color: rgba(41, 145, 55, 0.877);
+    animation: showing 2s ease-out alternate infinite;
+}
+
+@keyframes showing {
+    from {
+        right: 28vw;
+    }
+
+    to {
+        right: 30vw;
+    }
+}
+
+
+
+
+
+@media (max-width:375px) {
+
+    .fas.fa-long-arrow-alt-left {
+        font-size: 50px;
+    }
+}
+
+@media (max-width:450px) {
+
+    .fas.fa-long-arrow-alt-left {
+        right: 5px;
+        font-size: 50px;
+    }
+}
+
+div.load.spin {
+    animation: spin .5s linear infinite;
+}
+
+div.load {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    transform: rotate(0deg);
+    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+
+}
+
+div.load span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#14ffe9, #14ffe9, #ff00e0, #ff00e0);
+    border-radius: 50%;
+}
+
+div.load span:nth-child(1) {
+    filter: blur(10px);
+}
+
+div.load span:nth-child(2) {
+
+    filter: blur(20px);
+}
+
+div.load span:nth-child(3) {
+
+    filter: blur(30px);
+}
+
+div.load span:nth-child(4) {
+
+    filter: blur(50px);
+}
+
+div.load::after {
+    content: '';
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 30px;
+    bottom: 30px;
+    background: #000;
+    border-radius: 50%;
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+div.btnContainer {
+    height: 200px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+
+}
+
+button.spin {
+    cursor: pointer;
+    width: 200px;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    height: 60px;
+    border: none;
+    border-radius: 30px;
+    background-size: 400%;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+    bottom: 100px;
+    position: absolute;
+}
+
+button.spin::after {
+    content: '';
+    position: absolute;
+    left: -5px;
+    right: -5px;
+    top: -5px;
+    bottom: -5px;
+    background: blue;
+    z-index: -1;
+    background-size: 400%;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    border-radius: 30px;
+    opacity: 0;
+}
+
+button.spin:hover::after {
+    opacity: 1;
+    filter: blur(20px);
+}
+
+.spin:hover {
+    animation: moving 5s infinite;
+
+}
+
+@keyframes moving {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 400%;
+    }
+}
+
+@media (max-width:376px) {
+    div.load {
+        width: 200px;
+        height: 200px;
+    }
+
+    button.spin {
+        width: 100px;
+        height: 30px;
+    }
+
+    .fas.fa-long-arrow-alt-left {
+
+        font-size: 35px;
+    }
+
+}
+
+@media (max-width:376px) and (min-height:813px) {
+    div.load {
+        width: 250px;
+        height: 250px;
+    }
+
+    button.spin {
+        width: 200px;
+        height: 35px;
+    }
+
+    .fa-carrot {
+
+        font-size: 40px;
+    }
+
+}
+
+@media (min-width:377px) {
+    div.load {
+        width: 250px;
+        height: 250px;
+    }
+
+    button.spin {
+        width: 150px;
+        height: 50px;
+    }
+
+    .fa-carrot {
+
+        font-size: 50px;
+    }
+
+}
+
+@media (orientation:landscape) {
+    div.load {
+        width: 150px;
+        height: 150px;
+    }
+
+    button.spin {
+        width: 100px;
+        height: 30px;
+        margin-top: 100px;
+    }
+
+}
+
+@media (min-width:1000px) {
+    div.load {
+        height: 300px;
+        width: 300px;
+    }
+
+    button.spin {
+        margin-top: 0;
+        width: 200px;
+        height: 50px;
+    }
+
+    .fa-carrot {
+
+        font-size: 120px;
+    }
+
+}
+
+@media (max-width:412px) {
+    aside {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        min-width: 100%;
+    }
+
+    aside h4,
+    aside h5,
+    aside h6 {
+        text-transform: uppercase;
+        font-weight: 200;
+        font-size: 15px;
+        margin: 0;
+    }
+
+    .glowing span {
+        padding: 2px 5px;
+        border: 2px solid;
+    }
+}
+
+@media (max-width:320px) {
+    aside {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        min-width: 100%;
+    }
+
+    aside h4,
+    aside h5,
+    aside h6 {
+        text-transform: uppercase;
+        font-weight: 200;
+        font-size: 10px;
+        margin: 0;
+    }
+
+    .glowing span {
+        padding: 2px 5px;
+        border: 2px solid;
+    }
+}
