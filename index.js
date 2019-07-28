@@ -55,7 +55,10 @@ class Statistics {
         }, 1000)
         setTimeout(() => {
             transparentResult.classList.remove('active');
+            btn.addEventListener("click", validationRotate);
+
         }, 3000)
+
 
     }
     WinOrLose(win) {
@@ -96,19 +99,27 @@ colorBtn.forEach(item => item.addEventListener('click', e => {
 let nbRandom = "";
 let time = 3000;
 
-btn.addEventListener("click", function () {
+const validationRotate = () => {
+
     if (!inputBid.value) return alert("Podaj stawkę")
     else if (!choosenColor) return alert("Wybierz kolor")
+    else if (inputBid.value <= 0) return alert("Niepoprawna stawka")
     if (Math.floor(spanMoney.textContent) < Math.floor(inputBid.value)) return alert("Nie masz środków na koncie");
+
+    btn.removeEventListener('click', validationRotate);
 
     nbRandom = Math.floor(Math.random() * 30000);
     div.style.transition = `${time}ms ease`;
     div.style.transform = `rotate(${nbRandom}deg)`;
 
     setTimeout(rotate, time)
-});
+
+}
+
+btn.addEventListener("click", validationRotate);
 
 const rotate = () => {
+
     let result = nbRandom % 360;
     if (result <= 180) drawnColor = "Niebieski";
     else if (result <= 360) drawnColor = "Fioletowy";
@@ -122,6 +133,7 @@ statsInfo = () => {
     else statistics.WinOrLose(false), money.Result(inputBid.value, false);
 
     statistics.Stats()
+
 
 
 
